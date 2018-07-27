@@ -2,6 +2,7 @@ const buttons = document.querySelectorAll("input[type=button]");
 const readName = document.getElementById("readName");
 const dice = document.getElementById("dice");
 const repeat = document.getElementById("repeat");
+const say = document.getElementById("say");
 let nDice = document.getElementById("numberofDices");
 let nSide = document.getElementById("numberofSides")
 let diceArray = [];
@@ -27,6 +28,11 @@ dice.addEventListener("click", function(){
 });
 
 repeat.addEventListener("click", () => responsiveVoice.speak(lastSaid.toString()));
+
+say.addEventListener("click", function(){
+  responsiveVoice.speak(removeDuplicates(itemList).toString());
+  itemList = [];
+});
 
 // Compares value of input clicked to every object's name property and return content of object that match
 function getCard(e) {
@@ -55,4 +61,15 @@ function sumDice(array) {
   }
   lastSaid = sum;
   return lastSaid;
+}
+
+// Code from: https://codereview.stackexchange.com/questions/60128/removing-duplicates-from-an-array-quickly
+function removeDuplicates(array){
+    var unique = [];
+    for (let i = 0; i < array.length; i++) {
+        let current = array[i];
+        if (unique.indexOf(current) < 0) unique.push(current);
+    }
+    lastSaid = unique;
+    return unique;
 }
