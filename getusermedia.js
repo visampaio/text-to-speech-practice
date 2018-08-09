@@ -69,44 +69,55 @@ var itemList = [];
     }
 
     function drawCorners(markers){
-      var corners, corner, i, j;
+      var corners, corner, newCorner, i, j;
 
       context.lineWidth = 3;
 
       for (i = 0; i !== markers.length; ++ i){
         corners = markers[i].corners;
+        newCorner = corners;
 
         context.strokeStyle = "red";
         context.beginPath();
 
-        // for (j = 0; j !== corners.length; ++ j){
-        //   corner = corners[j];
-        //   context.moveTo(corner.x, corner.y);
-        //   corner = corners[(j + 1) % corners.length];
-        //   context.lineTo(corner.x, corner.y);
-        // }
+// 0 > 1
+        context.moveTo(corners[0].x, corners[0].y);
 
         let a = corners[0].x - corners[1].x;
         let b = corners[0].y - corners[1].y;
-        let dist = Math.sqrt( a*a + b*b );
+        let distHor = Math.sqrt( a*a + b*b )*2;
 
-        // Formula to calculate coordinates based on angle and distance
-        // x2=x1+d×cosθ
-        // y2=y1+d×sinθ,
+        let cosHor = - a/distHor;
+        let senHor = - b/distHor;
 
-        let cosAng = - a/dist;
-        let senAng = - b/dist;
+        newCorner[1].x = corners[0].x + (distHor*2)*cosHor;
+        newCorner[1].y = corners[0].y + (distHor*2)*senHor;
 
-        console.log("cosseno puro", cosAng);
-        console.log((dist*2)*cosAng);
+        context.lineTo(newCorner[1].x, newCorner[1].y)
 
-        let newCorner = {};
-
-        newCorner.x = corners[0].x + (dist*2)*cosAng;
-        newCorner.y = corners[0].y + (dist*2)*senAng;
-
+// 0 > 3
         context.moveTo(corners[0].x, corners[0].y);
-        context.lineTo(newCorner.x, newCorner.y)
+
+        a = corners[0].x - corners[3].x;
+        b = corners[0].y - corners[3].y;
+        let distVer = Math.sqrt( a*a + b*b );
+
+        let cosVer = - a/distVer;
+        let senVer = - b/distVer;
+
+        newCorner[3].x = corners[0].x + (distVer*2)*cosVer;
+        newCorner[3].y = corners[0].y + (distVer*2)*senVer;
+
+        context.lineTo(newCorner[3].x, newCorner[3].y)
+
+// 3 > 2
+        newCorner[2].x = newCorner[3].x + (distHor*2)*cosHor;
+        newCorner[2].y = newCorner[3].y + (distHor*2)*senHor;
+
+        context.lineTo(newCorner[2].x, newCorner[2].y)
+
+// 2 > 1
+        context.lineTo(newCorner[1].x, newCorner[1].y)
 
         context.stroke();
         context.closePath();

@@ -1,3 +1,5 @@
 # text-to-speech-practice
 
-Project to practice and experiment with the ResponsiveVoice.js text-to-speech library.
+WIP application that uses ResponsiveVoice.js and Aruco markers to read aloud the content of cards.
+
+Visual filters will be futurely developed.
