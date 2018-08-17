@@ -7,7 +7,7 @@
 
 </head>
 
-<body>
+<body style="background-color: blue">
   <input type='button' value='Espeon'>
   <input type='button' value='Umbreon'>
 
@@ -32,9 +32,36 @@
   <hr>
 
   <video id="video" autoplay="true" style="display:none;"></video>
-    <canvas id="canvas" style="width:640px; height:480px;"></canvas>
-    <button id="say">Say the cards</button>
+  <canvas id="canvas" style="width:640px; height:480px;"></canvas>
+  <video id="video2" autoplay="true" style="display:none;"></video>
+  <canvas id="canvasOutput" style="width:640px; height:480px;"></canvas>
 
+  <button id="say">Say the cards</button>
+
+  <script type="text/javascript" src="opencv.js"></script>
+  <script>
+//   let height = 480;
+//   let width = 640;
+//
+//   let canvasFrame = document.getElementById("canvas");
+// let context = canvasFrame.getContext("2d");
+// let src = new cv.Mat(height, width, cv.CV_8UC4);
+// let dst = new cv.Mat(height, width, cv.CV_8UC1);
+//
+// const FPS = 30;
+// function processVideo() {
+//     let begin = Date.now();
+//     context.drawImage(video, 0, 0, width, height);
+//     src.data.set(context.getImageData(0, 0, width, height).data);
+//     cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY);
+//     cv.imshow("canvasOutput", dst); // canvasOutput is the id of another <canvas>;
+//     // schedule next one.
+//     let delay = 1000/FPS - (Date.now() - begin);
+//     setTimeout(processVideo, delay);
+// }
+// // schedule first one.
+// setTimeout(processVideo, 0);
+  </script>
   <script type="text/javascript" src="cv.js"></script>
   <script type="text/javascript" src="aruco.js"></script>
   <script src='function.js'></script>
