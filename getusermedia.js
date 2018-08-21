@@ -103,14 +103,14 @@ var context3, context2, canvasOutput, canvasQuadrado, video2, video3;
 
 
 
-      for (var z=0;z<imageData3.data.length;z+=4)
-      {
-        imageData3.data[z]=255-imageData3.data[z];
-        imageData3.data[z+1]=255-imageData3.data[z+1];
-        imageData3.data[z+2]=255-imageData3.data[z+2];
-        imageData3.data[z+3]=255;
-      }
-      context3.putImageData(imageData3, 0, 0);
+      // for (var z=0;z<imageData3.data.length;z+=4)
+      // {
+      //   imageData3.data[z]=255-imageData3.data[z];
+      //   imageData3.data[z+1]=255-imageData3.data[z+1];
+      //   imageData3.data[z+2]=255-imageData3.data[z+2];
+      //   imageData3.data[z+3]=255;
+      // }
+      // context3.putImageData(imageData3, 0, 0);
 
 
       context.lineWidth = 3;
@@ -119,22 +119,8 @@ var context3, context2, canvasOutput, canvasQuadrado, video2, video3;
         corners = markers[i].corners;
         newCorner = corners;
 
-        context2.save();
-
-        // cornerData = context.getImageData(corners[0].x, corners[0].y, 200, 200);
-        // for (var z=0;z<cornerData.data.length;z+=4)
-        // {
-        //   cornerData.data[z]=255-cornerData.data[z];
-        //   cornerData.data[z+1]=255-cornerData.data[z+1];
-        //   cornerData.data[z+2]=255-cornerData.data[z+2];
-        //   cornerData.data[z+3]=255;
-        // }
-        // context.putImageData(cornerData,corners[0].x, corners[0].y);
-
-        // context2.strokeStyle = "red";
-        // context2.globalCompositeOperation = "destination-out";
         context2.beginPath();
-      /// ?
+
 // 0 > 1
         context2.moveTo(corners[0].x, corners[0].y);
 
@@ -186,6 +172,7 @@ var context3, context2, canvasOutput, canvasQuadrado, video2, video3;
         context2.drawImage(canvasQuadrado, 0, 0);
       }
 
+      // Efeito chroma-key
       let frame = context2.getImageData(0, 0, canvasQuadrado.width, canvasQuadrado.height);
       let l = frame.data.length / 4;
       for (let i = 0; i < l; i++) {
@@ -207,28 +194,5 @@ var context3, context2, canvasOutput, canvasQuadrado, video2, video3;
         // context.strokeRect(corners[0].x - 2, corners[0].y - 2, 4, 4);
       }
     }
-
-    // function drawId(markers){
-    //   var corners, corner, x, y, i, j;
-    //
-    //   context.strokeStyle = "blue";
-    //   context.lineWidth = 1;
-    //
-    //   for (i = 0; i !== markers.length; ++ i){
-    //     corners = markers[i].corners;
-    //
-    //     x = Infinity;
-    //     y = Infinity;
-    //
-    //     for (j = 0; j !== corners.length; ++ j){
-    //       corner = corners[j];
-    //
-    //       x = Math.min(x, corner.x);
-    //       y = Math.min(y, corner.y);
-    //     }
-    //
-    //     context.strokeText(markers[i].id, x, y)
-    //   }
-    // }
 
     window.onload = onLoad;
