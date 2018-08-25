@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll("input[type=button]");
 const readName = document.getElementById("readName");
+const sumAll = document.getElementById("sumAll");
 const dice = document.getElementById("dice");
 const repeat = document.getElementById("repeat");
 const say = document.getElementById("say");
@@ -72,4 +73,17 @@ function removeDuplicates(array){
     }
     lastSaid = unique;
     return unique;
+}
+
+//Code from: https://stackoverflow.com/a/37714937/
+function contrastImage(imgData, contrast){  //input range [-100..100]
+    var d = imgData.data;
+    contrast = (contrast/100) + 1;  //convert to decimal & shift range: [0..2]
+    var intercept = 128 * (1 - contrast);
+    for(var i=0;i<d.length;i+=4){   //r,g,b,a
+        d[i] = d[i]*contrast + intercept; //r value
+        d[i+1] = d[i+1]*contrast + intercept; //g value
+        d[i+2] = d[i+2]*contrast + intercept; //b value
+    }
+    return imgData;
 }

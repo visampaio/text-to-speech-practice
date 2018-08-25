@@ -4,6 +4,7 @@
 var imageData, imageData2, imageData3, detector;
 var itemList = [];
 var context3, context2, canvasOutput, canvasQuadrado, video2, video3;
+const highContrast = document.getElementById("highContrast");
 
 
 ///// Assim que a pagina carrega
@@ -111,6 +112,9 @@ var context3, context2, canvasOutput, canvasQuadrado, video2, video3;
       //   imageData3.data[z+3]=255;
       // }
       // context3.putImageData(imageData3, 0, 0);
+
+        context3.putImageData(contrastImage(imageData3, highContrast.valueAsNumber), 0, 0);
+
 
 
       context.lineWidth = 3;
