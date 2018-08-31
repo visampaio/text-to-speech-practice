@@ -114,6 +114,7 @@ const highContrast = document.getElementById("highContrast");
       // context3.putImageData(imageData3, 0, 0);
 
         context3.putImageData(contrastImage(imageData3, highContrast.valueAsNumber), 0, 0);
+        context3.putImageData(changeBrightness(imageData3, brightness.valueAsNumber), 0, 0);
 
 
 

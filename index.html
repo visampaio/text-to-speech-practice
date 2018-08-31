@@ -44,8 +44,15 @@
   <button id="say">Say the cards</button>
   <label for="highContrast"> High Contrast</label>
   <input id="highContrast" type="range" min="-100" max="100" list="contrastMarks">
-
   <datalist id="contrastMarks">
+    <option value="-100">
+    <option value="0">
+    <option value="100">
+  </datalist>
+
+  <label for="brightness"> Brightness</label>
+  <input id="brightness" type="range" min="-100" max="100" list="brightnessMarks">
+  <datalist id="brightnessMarks">
     <option value="-100">
     <option value="0">
     <option value="100">

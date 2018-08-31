@@ -87,3 +87,14 @@ function contrastImage(imgData, contrast){  //input range [-100..100]
     }
     return imgData;
 }
+
+//Code from: https://www.html5rocks.com/en/tutorials/canvas/imagefilters/
+function changeBrightness(imgData, brightness) {
+  var d = imgData.data;
+  for (var i=0; i<d.length; i+=4) {
+    d[i] += brightness;
+    d[i+1] += brightness;
+    d[i+2] += brightness;
+  }
+  return imgData;
+};
