@@ -4,6 +4,7 @@ const sumAll = document.getElementById("sumAll");
 const dice = document.getElementById("dice");
 const repeat = document.getElementById("repeat");
 const say = document.getElementById("say");
+const show = document.getElementById("show");
 let nDice = document.getElementById("numberofDices");
 let nSide = document.getElementById("numberofSides")
 let diceArray = [];
@@ -35,7 +36,12 @@ say.addEventListener("click", function(){
   itemList = [];
 });
 
-// Compares value of input clicked to every object's name property and return content of object that match
+// show.addEventListener("click", function(){
+//   showImage(getCardImage(removeDuplicates(itemList)));
+//   itemList = [];
+// });
+
+// Returns content of card whose name == value of the button clicked
 function getCard(e) {
   let name = e.value;
   for (i=0; i<cards.length; i++) {
@@ -43,6 +49,44 @@ function getCard(e) {
       card = cards[i];
   }
   return card.content;
+}
+
+function getCardImage(markers) {
+  let cardImages = [];
+  for (i=0; i<markers.length; i++) {
+    for (j=0; j<cards.length; j++) {
+      if (markers[i] == cards[j].id){
+        cardImages.push(cards[j].image);
+        }
+    }
+  }
+  return cardImages;
+}
+
+var container = document.getElementById('imageContainer');
+var docFrag = document.createDocumentFragment();
+
+function showImage(imgs) {
+  container.innerHTML = "";
+  imgs.forEach(function(url) {
+    var img = document.createElement('img');
+    img.src = url;
+    docFrag.appendChild(img);
+  });
+  container.appendChild(docFrag);
+}
+
+function removeOthers(list, markers) {
+  let newList = [];
+  for (var i=0; i < list.length; i++) {
+    for (var j=0; j < markers.length; j++) {
+      if (list[i] == markers[j].id){
+        newList.push(list[i]);
+      }
+    }
+  }
+
+  return newList;
 }
 
 function rollDice() {
@@ -99,6 +143,7 @@ function changeBrightness(imgData, brightness) {
   return imgData;
 };
 
+//Code from: https://stackoverflow.com/questions/29156849/html5-canvas-changing-image-color
 var red, green, blue, alpha;
 
 function hueShift(imgData,min,max,colorHue){

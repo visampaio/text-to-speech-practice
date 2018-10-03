@@ -85,6 +85,7 @@ const highContrast = document.getElementById("highContrast");
         for (i = 0; i !== markers.length; ++ i) {
           itemList.push(markers[i].id);
         }
+        showImage(getCardImage(removeOthers(removeDuplicates(itemList), markers)));
       }
     }
       /// ?
