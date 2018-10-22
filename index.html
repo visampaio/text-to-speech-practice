@@ -2,14 +2,19 @@
 <html>
 <head>
   <title>Text-to-Speech Practice</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
   <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
   <script src='cards.js'></script>
 
 </head>
 
 <body>
-  <input type='button' value='Espeon'>
-  <input type='button' value='Umbreon'>
+
+  <div class="split left">
+  <img id="imagenzinha" src="img/elysium.png" style="display:none;">
+  <!-- <input type='file' id='imgfile' /> -->
+  <!-- <input type='button' value='Espeon'> -->
+  <!-- <input type='button' value='Umbreon'> -->
 
   <input type="checkbox" id="readName">
   <label for="readName"> Read only name of cards</label>
@@ -38,12 +43,11 @@
   <canvas id="canvasOutput" style="width:320px; height:240px; position:absolute; left: 0"></canvas>
   <!-- <br> Video2, Context3, canvasOutput <br> -->
   <video id="video3" autoplay="true" style="display:none;"></video>
-  <canvas id="canvasQuadrado" style="width:320px; height:240px; position:absolute; left: 0"></canvas> <br>
-
+  <canvas id="canvasQuadrado" style="width:320px; height:240px; position:absolute; left: 0"></canvas>
+  <br>
 
   <button id="say">Say the cards</button>
   <button id="show">Show the cards</button>
-  <div id="imageContainer"></div>
 
   <label for="highContrast"> High Contrast</label>
   <input id="highContrast" type="range" min="-100" max="100" list="contrastMarks">
@@ -71,9 +75,18 @@
   <input type="radio" id="redYellow" name="red" value="yellow">
   <label for="redRed">Yellow</label>
 
-  <script type="text/javascript" src="cv.js"></script>
-  <script type="text/javascript" src="aruco.js"></script>
-  <script src='function.js'></script>
-  <script type="text/javascript" src="getusermedia.js"></script>
+
+  </div>
+
+  <div class="split right">
+  <canvas id="canvasDigital" style="position:relative;"></canvas>
+  <canvas id="canvasDigital2" style="position:absolute; left: 0"></canvas>
+  <!-- <div id="imageContainer"></div> -->
+    </div>
+
+    <script type="text/javascript" src="cv.js"></script>
+    <script type="text/javascript" src="aruco.js"></script>
+    <script src='function.js'></script>
+    <script type="text/javascript" src="getusermedia.js"></script>
 </body>
 </html>

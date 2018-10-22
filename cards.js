@@ -1,4 +1,10 @@
 const cards = [
+  elysium = {
+    id: "1",
+    name: "",
+    content: "",
+    image: "img/elysium.png"
+  },
   espeon = {
     id: "9",
     name: "Espeon",

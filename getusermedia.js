@@ -5,10 +5,59 @@ var imageData, imageData2, imageData3, detector;
 var itemList = [];
 var context3, context2, canvasOutput, canvasQuadrado, video2, video3;
 const highContrast = document.getElementById("highContrast");
+var canvasDigital, contextDigital, imgDigital, digitalData, digitalData2;
+var image = document.getElementById("imagenzinha");
+// var img;
+// var file;
+// var input = document.getElementById('imgfile');
+// var fr = new FileReader();
+// var img = document.getElementById("testcard");
+var canvasDigital = document.getElementById("canvasDigital");
+var contextDigital = canvasDigital.getContext("2d");
+canvasDigital.width = image.width;
+canvasDigital.height = image.height;
+
+var canvasDigital2 = document.getElementById("canvasDigital2");
+var contextDigital2 = canvasDigital.getContext("2d");
+canvasDigital2.width = image.width;
+canvasDigital2.height = image.height;
+
+digitalData2 = contextDigital2.getImageData(0, 0, canvasDigital2.width, canvasDigital2.height);
+digitalDataOriginal = digitalData2;
+
+// var aconteceu;
+//
+// input.addEventListener("change", function() {
+//
+//   file = input.files[0];
+//   fr.onload = createImage();   // onload fires after reading is complete
+//   fr.readAsDataURL(file);    // begin reading
+// })
+
+
+
+//////
+
+// function createImage(){
+//   img = new Image();
+//   img.onload = function () {
+//     contextDigital.drawImage(img, 0, 0);
+//     aconteceu = true;
+//   }
+//   img.src = fr.result;
+// }
 
 
 ///// Assim que a pagina carrega
     function onLoad(){
+
+//       function convertImageToCanvas(image) {
+// 	canvasDigital = document.getElementById("canvasDigital");
+// 	canvasDigital.width = image.width;
+// 	canvasDigital.height = image.height;
+//
+// 	return canvasDigital;
+// }
 
       /// Atribuindo variaveis as tags
       video = document.getElementById("video");
@@ -85,7 +134,7 @@ const highContrast = document.getElementById("highContrast");
         for (i = 0; i !== markers.length; ++ i) {
           itemList.push(markers[i].id);
         }
-        showImage(getCardImage(removeOthers(removeDuplicates(itemList), markers)));
+        // showImage(getCardImage(removeOthers(removeDuplicates(itemList), markers)));
       }
     }
       /// ?
@@ -118,7 +167,9 @@ const highContrast = document.getElementById("highContrast");
         context3.putImageData(changeBrightness(imageData3, brightness.valueAsNumber), 0, 0);
         context3.putImageData(hueShift(imageData3,30,300,-100), 0, 0);
 
-
+        // if (aconteceu) {
+        //   contextDigital.drawImage(img, 0, 0, 230, 324);
+        // }
 
       context.lineWidth = 3;
       /// ?
@@ -128,48 +179,55 @@ const highContrast = document.getElementById("highContrast");
 
         context2.beginPath();
 
-// 0 > 1
-        context2.moveTo(corners[0].x, corners[0].y);
+        // 0 > 1
+                context2.moveTo(corners[0].x, corners[0].y);
 
-        let a = corners[0].x - corners[1].x;
-        let b = corners[0].y - corners[1].y;
-        let distHor = Math.sqrt( a*a + b*b )*2;
+                let a = corners[0].x - corners[1].x;
+                let b = corners[0].y - corners[1].y;
+                let distHor = Math.sqrt( a*a + b*b );
 
-        let cosHor = - a/distHor;
-        let senHor = - b/distHor;
+                let cosHor = - a/distHor;
+                let senHor = - b/distHor;
 
-        newCorner[1].x = corners[0].x + (distHor*2)*cosHor;
-        newCorner[1].y = corners[0].y + (distHor*2)*senHor;
+                newCorner[1].x = corners[0].x + (distHor*2.5)*cosHor;
+                newCorner[1].y = corners[0].y + (distHor*2.5)*senHor;
 
-        context2.lineTo(newCorner[1].x, newCorner[1].y)
+                context2.lineTo(newCorner[1].x, newCorner[1].y)
 
-// 0 > 3
-        context2.moveTo(corners[0].x, corners[0].y);
+        // 0 > 3
+                context2.moveTo(corners[0].x, corners[0].y);
 
-        a = corners[0].x - corners[3].x;
-        b = corners[0].y - corners[3].y;
-        let distVer = Math.sqrt( a*a + b*b );
+                a = corners[0].x - corners[3].x;
+                b = corners[0].y - corners[3].y;
+                let distVer = Math.sqrt( a*a + b*b );
 
-        let cosVer = - a/distVer;
-        let senVer = - b/distVer;
+                let cosVer = - a/distVer;
+                let senVer = - b/distVer;
 
-        newCorner[3].x = corners[0].x + (distVer*2)*cosVer;
-        newCorner[3].y = corners[0].y + (distVer*2)*senVer;
+                newCorner[3].x = corners[0].x + (distVer*2.3)*cosVer;
+                newCorner[3].y = corners[0].y + (distVer*3.3)*senVer;
 
-        context2.lineTo(newCorner[3].x, newCorner[3].y)
+                context2.lineTo(newCorner[3].x, newCorner[3].y)
 
-// 3 > 2
-        newCorner[2].x = newCorner[3].x + (distHor*2)*cosHor;
-        newCorner[2].y = newCorner[3].y + (distHor*2)*senHor;
+        // 3 > 2
+                newCorner[2].x = newCorner[3].x + (distHor*2.5)*cosHor;
+                newCorner[2].y = newCorner[3].y + (distHor*2.5)*senHor;
 
-        context2.lineTo(newCorner[2].x, newCorner[2].y)
+                context2.lineTo(newCorner[2].x, newCorner[2].y)
 
-// 2 > 1
-        context2.lineTo(newCorner[1].x, newCorner[1].y)
+        // 2 > 1
+                context2.lineTo(newCorner[1].x, newCorner[1].y)
       /// ?
 
       if (markers.length > 0) {
         // context2.clearRect(0, 0, canvasQuadrado.width, canvasQuadrado.height);
+        contextDigital.drawImage(image, 0, 0);
+        contextDigital2.drawImage(image, 0, 0);
+        digitalData = contextDigital.getImageData(0, 0, canvasDigital.width, canvasDigital.height);
+        digitalData2 = contextDigital2.getImageData(0, 0, canvasDigital2.width, canvasDigital2.height);
+        contextDigital2.putImageData(contrastImage(digitalData2, highContrast.valueAsNumber), 0, 0);
+        contextDigital2.putImageData(changeBrightness(digitalData2, brightness.valueAsNumber), 0, 0);
+
         context2.fillStyle = "rgb(0,255,0)";
         context2.fill();
         context2.closePath();
@@ -201,5 +259,7 @@ const highContrast = document.getElementById("highContrast");
         // context.strokeRect(corners[0].x - 2, corners[0].y - 2, 4, 4);
       }
     }
+
+    
 
     window.onload = onLoad;
