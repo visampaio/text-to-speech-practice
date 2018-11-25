@@ -6,24 +6,25 @@ var itemList = [];
 var context3, context2, canvasOutput, canvasQuadrado, video2, video3;
 const highContrast = document.getElementById("highContrast");
 var canvasDigital, contextDigital, imgDigital, digitalData, digitalData2;
-var image = document.getElementById("imagenzinha");
+var imageRed = document.getElementById("uno-red");
+// var imageGreen = document.getElementById("uno-green");
 // var img;
 // var file;
 // var input = document.getElementById('imgfile');
 // var fr = new FileReader();
 // var img = document.getElementById("testcard");
-var canvasDigital = document.getElementById("canvasDigital");
-var contextDigital = canvasDigital.getContext("2d");
-canvasDigital.width = image.width;
-canvasDigital.height = image.height;
+var canvasRed = document.getElementById("canvasRed");
+var contextRed = canvasRed.getContext("2d");
+canvasRed.width = imageRed.width;
+canvasRed.height = imageRed.height;
 
-var canvasDigital2 = document.getElementById("canvasDigital2");
-var contextDigital2 = canvasDigital.getContext("2d");
-canvasDigital2.width = image.width;
-canvasDigital2.height = image.height;
+var canvasRed2 = document.getElementById("canvasRed2");
+var contextRed2 = canvasRed.getContext("2d");
+canvasRed2.width = imageRed.width;
+canvasRed2.height = imageRed.height;
 
-digitalData2 = contextDigital2.getImageData(0, 0, canvasDigital2.width, canvasDigital2.height);
-digitalDataOriginal = digitalData2;
+var redData2 = contextRed2.getImageData(0, 0, canvasRed2.width, canvasRed2.height);
+var redDataOriginal = redData2;
 
 // var aconteceu;
 //
@@ -165,7 +166,8 @@ digitalDataOriginal = digitalData2;
 
         context3.putImageData(contrastImage(imageData3, highContrast.valueAsNumber), 0, 0);
         context3.putImageData(changeBrightness(imageData3, brightness.valueAsNumber), 0, 0);
-        context3.putImageData(hueShift(imageData3,30,300,-100), 0, 0);
+        context3.putImageData(changeColor(imageData3), 0, 0);
+        // context3.putImageData(hueShift(imageData3,30,300,-100), 0, 0);
 
         // if (aconteceu) {
         //   contextDigital.drawImage(img, 0, 0, 230, 324);
@@ -189,8 +191,8 @@ digitalDataOriginal = digitalData2;
                 let cosHor = - a/distHor;
                 let senHor = - b/distHor;
 
-                newCorner[1].x = corners[0].x + (distHor*2.5)*cosHor;
-                newCorner[1].y = corners[0].y + (distHor*2.5)*senHor;
+                newCorner[1].x = corners[0].x + (distHor*2.8)*cosHor;
+                newCorner[1].y = corners[0].y + (distHor*2.8)*senHor;
 
                 context2.lineTo(newCorner[1].x, newCorner[1].y)
 
@@ -204,14 +206,14 @@ digitalDataOriginal = digitalData2;
                 let cosVer = - a/distVer;
                 let senVer = - b/distVer;
 
-                newCorner[3].x = corners[0].x + (distVer*2.3)*cosVer;
-                newCorner[3].y = corners[0].y + (distVer*3.3)*senVer;
+                newCorner[3].x = corners[0].x + (distVer*4)*cosVer;
+                newCorner[3].y = corners[0].y + (distVer*4)*senVer;
 
                 context2.lineTo(newCorner[3].x, newCorner[3].y)
 
         // 3 > 2
-                newCorner[2].x = newCorner[3].x + (distHor*2.5)*cosHor;
-                newCorner[2].y = newCorner[3].y + (distHor*2.5)*senHor;
+                newCorner[2].x = newCorner[3].x + (distHor*2.8)*cosHor;
+                newCorner[2].y = newCorner[3].y + (distHor*2.8)*senHor;
 
                 context2.lineTo(newCorner[2].x, newCorner[2].y)
 
@@ -221,12 +223,13 @@ digitalDataOriginal = digitalData2;
 
       if (markers.length > 0) {
         // context2.clearRect(0, 0, canvasQuadrado.width, canvasQuadrado.height);
-        contextDigital.drawImage(image, 0, 0);
-        contextDigital2.drawImage(image, 0, 0);
-        digitalData = contextDigital.getImageData(0, 0, canvasDigital.width, canvasDigital.height);
-        digitalData2 = contextDigital2.getImageData(0, 0, canvasDigital2.width, canvasDigital2.height);
-        contextDigital2.putImageData(contrastImage(digitalData2, highContrast.valueAsNumber), 0, 0);
-        contextDigital2.putImageData(changeBrightness(digitalData2, brightness.valueAsNumber), 0, 0);
+        contextRed.drawImage(imageRed, 0, 0);
+        contextRed2.drawImage(imageRed, 0, 0);
+        digitalRed = contextRed.getImageData(0, 0, canvasRed.width, canvasRed.height);
+        digitalRed2 = contextRed2.getImageData(0, 0, canvasRed2.width, canvasRed2.height);
+        contextRed2.putImageData(contrastImage(redData2, highContrast.valueAsNumber), 0, 0);
+        contextRed2.putImageData(changeBrightness(redData2, brightness.valueAsNumber), 0, 0);
+        contextRed2.putImageData(changeColor(redData2), 0, 0);
 
         context2.fillStyle = "rgb(0,255,0)";
         context2.fill();
@@ -260,6 +263,6 @@ digitalDataOriginal = digitalData2;
       }
     }
 
-    
+
 
     window.onload = onLoad;
