@@ -68,12 +68,9 @@ var docFrag = document.createDocumentFragment();
 
 function showImage(imgs) {
   container.innerHTML = "";
-  var i = 0;
   imgs.forEach(function(url) {
     var img = document.createElement('img');
     img.src = url;
-    img.id = "imgDigi" + i;
-    i++;
     docFrag.appendChild(img);
   });
   container.appendChild(docFrag);

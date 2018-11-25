@@ -5,6 +5,7 @@ var imageData, imageData2, imageData3, detector;
 var itemList = [];
 var context3, context2, canvasOutput, canvasQuadrado, video2, video3;
 const highContrast = document.getElementById("highContrast");
+<<<<<<< HEAD
 var canvasDigital, contextDigital, imgDigital, digitalData, digitalData2;
 var imageRed = document.getElementById("uno-red");
 // var imageGreen = document.getElementById("uno-green");
@@ -47,18 +48,12 @@ var redDataOriginal = redData2;
 //   }
 //   img.src = fr.result;
 // }
+=======
+>>>>>>> parent of ac91b23... Changes
 
 
 ///// Assim que a pagina carrega
     function onLoad(){
-
-//       function convertImageToCanvas(image) {
-// 	canvasDigital = document.getElementById("canvasDigital");
-// 	canvasDigital.width = image.width;
-// 	canvasDigital.height = image.height;
-//
-// 	return canvasDigital;
-// }
 
       /// Atribuindo variaveis as tags
       video = document.getElementById("video");
@@ -135,7 +130,7 @@ var redDataOriginal = redData2;
         for (i = 0; i !== markers.length; ++ i) {
           itemList.push(markers[i].id);
         }
-        // showImage(getCardImage(removeOthers(removeDuplicates(itemList), markers)));
+        showImage(getCardImage(removeOthers(removeDuplicates(itemList), markers)));
       }
     }
       /// ?
@@ -169,9 +164,7 @@ var redDataOriginal = redData2;
         context3.putImageData(changeColor(imageData3), 0, 0);
         // context3.putImageData(hueShift(imageData3,30,300,-100), 0, 0);
 
-        // if (aconteceu) {
-        //   contextDigital.drawImage(img, 0, 0, 230, 324);
-        // }
+
 
       context.lineWidth = 3;
       /// ?
@@ -181,48 +174,65 @@ var redDataOriginal = redData2;
 
         context2.beginPath();
 
-        // 0 > 1
-                context2.moveTo(corners[0].x, corners[0].y);
+// 0 > 1
+        context2.moveTo(corners[0].x, corners[0].y);
 
-                let a = corners[0].x - corners[1].x;
-                let b = corners[0].y - corners[1].y;
-                let distHor = Math.sqrt( a*a + b*b );
+        let a = corners[0].x - corners[1].x;
+        let b = corners[0].y - corners[1].y;
+        let distHor = Math.sqrt( a*a + b*b )*2;
 
-                let cosHor = - a/distHor;
-                let senHor = - b/distHor;
+        let cosHor = - a/distHor;
+        let senHor = - b/distHor;
 
+<<<<<<< HEAD
                 newCorner[1].x = corners[0].x + (distHor*2.8)*cosHor;
                 newCorner[1].y = corners[0].y + (distHor*2.8)*senHor;
+=======
+        newCorner[1].x = corners[0].x + (distHor*2)*cosHor;
+        newCorner[1].y = corners[0].y + (distHor*2)*senHor;
+>>>>>>> parent of ac91b23... Changes
 
-                context2.lineTo(newCorner[1].x, newCorner[1].y)
+        context2.lineTo(newCorner[1].x, newCorner[1].y)
 
-        // 0 > 3
-                context2.moveTo(corners[0].x, corners[0].y);
+// 0 > 3
+        context2.moveTo(corners[0].x, corners[0].y);
 
-                a = corners[0].x - corners[3].x;
-                b = corners[0].y - corners[3].y;
-                let distVer = Math.sqrt( a*a + b*b );
+        a = corners[0].x - corners[3].x;
+        b = corners[0].y - corners[3].y;
+        let distVer = Math.sqrt( a*a + b*b );
 
-                let cosVer = - a/distVer;
-                let senVer = - b/distVer;
+        let cosVer = - a/distVer;
+        let senVer = - b/distVer;
 
+<<<<<<< HEAD
                 newCorner[3].x = corners[0].x + (distVer*4)*cosVer;
                 newCorner[3].y = corners[0].y + (distVer*4)*senVer;
+=======
+        newCorner[3].x = corners[0].x + (distVer*2)*cosVer;
+        newCorner[3].y = corners[0].y + (distVer*2)*senVer;
+>>>>>>> parent of ac91b23... Changes
 
-                context2.lineTo(newCorner[3].x, newCorner[3].y)
+        context2.lineTo(newCorner[3].x, newCorner[3].y)
 
+<<<<<<< HEAD
         // 3 > 2
                 newCorner[2].x = newCorner[3].x + (distHor*2.8)*cosHor;
                 newCorner[2].y = newCorner[3].y + (distHor*2.8)*senHor;
+=======
+// 3 > 2
+        newCorner[2].x = newCorner[3].x + (distHor*2)*cosHor;
+        newCorner[2].y = newCorner[3].y + (distHor*2)*senHor;
+>>>>>>> parent of ac91b23... Changes
 
-                context2.lineTo(newCorner[2].x, newCorner[2].y)
+        context2.lineTo(newCorner[2].x, newCorner[2].y)
 
-        // 2 > 1
-                context2.lineTo(newCorner[1].x, newCorner[1].y)
+// 2 > 1
+        context2.lineTo(newCorner[1].x, newCorner[1].y)
       /// ?
 
       if (markers.length > 0) {
         // context2.clearRect(0, 0, canvasQuadrado.width, canvasQuadrado.height);
+<<<<<<< HEAD
         contextRed.drawImage(imageRed, 0, 0);
         contextRed2.drawImage(imageRed, 0, 0);
         digitalRed = contextRed.getImageData(0, 0, canvasRed.width, canvasRed.height);
@@ -231,6 +241,8 @@ var redDataOriginal = redData2;
         contextRed2.putImageData(changeBrightness(redData2, brightness.valueAsNumber), 0, 0);
         contextRed2.putImageData(changeColor(redData2), 0, 0);
 
+=======
+>>>>>>> parent of ac91b23... Changes
         context2.fillStyle = "rgb(0,255,0)";
         context2.fill();
         context2.closePath();
@@ -263,6 +275,9 @@ var redDataOriginal = redData2;
       }
     }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of ac91b23... Changes
     window.onload = onLoad;
