@@ -1,15 +1,9 @@
 const cards = [
   elysium = {
     id: "1",
-    name: "Elysium",
-    content: "Elysium card",
-    image: "img/elysium.png"
-  },
-  unoRed = {
-    id: "2",
-    name: "Red card",
+    name: "",
     content: "",
-    image: "img/uno-red.jpg"
+    image: "img/elysium.png"
   },
   espeon = {
     id: "9",

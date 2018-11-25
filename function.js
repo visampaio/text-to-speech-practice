@@ -146,24 +146,6 @@ function changeBrightness(imgData, brightness) {
   return imgData;
 };
 
-
-function changeColor(imgData) {
-
-  let frame = imgData;
-  let l = frame.data.length / 4;
-  for (let i = 0; i < l; i++) {
-    let r = frame.data[i * 4 + 0];
-    let g = frame.data[i * 4 + 1];
-    let b = frame.data[i * 4 + 2];
-    var tempg = g;
-    if (g > 0 && g < 200)
-      frame.data[i * 4 + 1] -= 100;
-      // frame.data[i * 4 + 0] = tempg;
-  }
-  return frame;
-
-}
-
 //Code from: https://stackoverflow.com/questions/29156849/html5-canvas-changing-image-color
 var red, green, blue, alpha;
 
