@@ -1,5 +1,4 @@
 const cards = [
-<<<<<<< HEAD
   elysium = {
     id: "1",
     name: "Elysium",
@@ -12,8 +11,6 @@ const cards = [
     content: "",
     image: "img/uno-red.jpg"
   },
-=======
->>>>>>> parent of ac91b23... Changes
   espeon = {
     id: "9",
     name: "Espeon",
