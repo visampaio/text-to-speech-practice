@@ -165,7 +165,7 @@ digitalDataOriginal = digitalData2;
 
         context3.putImageData(contrastImage(imageData3, highContrast.valueAsNumber), 0, 0);
         context3.putImageData(changeBrightness(imageData3, brightness.valueAsNumber), 0, 0);
-        context3.putImageData(hueShift(imageData3,30,300,-100), 0, 0);
+        context3.putImageData(changeColor(imageData3), 0, 0);
 
         // if (aconteceu) {
         //   contextDigital.drawImage(img, 0, 0, 230, 324);
@@ -227,6 +227,7 @@ digitalDataOriginal = digitalData2;
         digitalData2 = contextDigital2.getImageData(0, 0, canvasDigital2.width, canvasDigital2.height);
         contextDigital2.putImageData(contrastImage(digitalData2, highContrast.valueAsNumber), 0, 0);
         contextDigital2.putImageData(changeBrightness(digitalData2, brightness.valueAsNumber), 0, 0);
+        contextDigital2.putImageData(changeColor(digitalData2), 0, 0);
 
         context2.fillStyle = "rgb(0,255,0)";
         context2.fill();
@@ -260,6 +261,6 @@ digitalDataOriginal = digitalData2;
       }
     }
 
-    
+
 
     window.onload = onLoad;
