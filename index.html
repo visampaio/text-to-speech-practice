@@ -65,6 +65,14 @@
     <option value="100">
   </datalist>
 
+  <label for="sharpness"> Sharpness</label>
+  <input id="sharpness" type="range" min="0" max="100" list="sharpnessMarks">
+  <datalist id="sharpnessMarks">
+    <option value="0">
+    <option value="50">
+    <option value="100">
+  </datalist>
+
   Red:
   <input type="radio" id="redRed" name="red" value="red">
   <label for="redRed">Red</label>
@@ -75,14 +83,22 @@
   <input type="radio" id="redYellow" name="red" value="yellow">
   <label for="redRed">Yellow</label>
 
+  <hr>
+
+  <label for="nameOfPlayer"> Name:</label>
+  <input type=text id="nameOfPlayer">
+
+
+  <div>
+  </div>
+
 
   </div>
 
   <div class="split right">
   <canvas id="canvasDigital" style="position:relative;"></canvas>
   <canvas id="canvasDigital2" style="position:absolute; left: 0"></canvas>
-  <!-- <div id="imageContainer"></div> -->
-    </div>
+  </div>
 
     <script type="text/javascript" src="cv.js"></script>
     <script type="text/javascript" src="aruco.js"></script>

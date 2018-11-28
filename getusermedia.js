@@ -4,7 +4,9 @@
 var imageData, imageData2, imageData3, detector;
 var itemList = [];
 var context3, context2, canvasOutput, canvasQuadrado, video2, video3;
-const highContrast = document.getElementById("highContrast");
+var brightness = document.getElementById("brightness");
+var highContrast = document.getElementById("highContrast");
+var sharpness = document.getElementById("sharpness");
 var canvasDigital, contextDigital, imgDigital, digitalData, digitalData2;
 var image = document.getElementById("imagenzinha");
 // var img;
@@ -165,7 +167,8 @@ digitalDataOriginal = digitalData2;
 
         context3.putImageData(contrastImage(imageData3, highContrast.valueAsNumber), 0, 0);
         context3.putImageData(changeBrightness(imageData3, brightness.valueAsNumber), 0, 0);
-        context3.putImageData(changeColor(imageData3), 0, 0);
+        context3.putImageData(sharpen(context3, canvas.width, canvas.height, sharpness.valueAsNumber), 0, 0);
+        // context3.putImageData(changeColor(imageData3), 0, 0);
 
         // if (aconteceu) {
         //   contextDigital.drawImage(img, 0, 0, 230, 324);
@@ -227,7 +230,8 @@ digitalDataOriginal = digitalData2;
         digitalData2 = contextDigital2.getImageData(0, 0, canvasDigital2.width, canvasDigital2.height);
         contextDigital2.putImageData(contrastImage(digitalData2, highContrast.valueAsNumber), 0, 0);
         contextDigital2.putImageData(changeBrightness(digitalData2, brightness.valueAsNumber), 0, 0);
-        contextDigital2.putImageData(changeColor(digitalData2), 0, 0);
+        contextDigital2.putImageData(sharpen(contextDigital2, canvasDigital2.width, canvasDigital2.height, sharpness.valueAsNumber), 0, 0);
+        // contextDigital2.putImageData(changeColor(digitalData2), 0, 0);
 
         context2.fillStyle = "rgb(0,255,0)";
         context2.fill();
