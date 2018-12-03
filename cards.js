@@ -5,6 +5,18 @@ const cards = [
     content: "",
     image: "img/elysium.png"
   },
+  unoGreen = {
+    id: "2",
+    name: "",
+    content: "",
+    image: "img/uno-green.jpg"
+  },
+  unoRed = {
+    id: "3",
+    name: "",
+    content: "",
+    image: "img/uno-red.jpg"
+  },
   espeon = {
     id: "9",
     name: "Espeon",

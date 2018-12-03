@@ -11,15 +11,15 @@ let diceArray = [];
 let lastSaid;
 let card;
 
-buttons.forEach((button) => {
-  button.addEventListener("click", function(){
-    if (readName.checked) {
-      responsiveVoice.speak(button.value);
-    } else {
-      responsiveVoice.speak(getCard(button));
-    }
-  })
-});
+// buttons.forEach((button) => {
+//   button.addEventListener("click", function(){
+//     if (readName.checked) {
+//       responsiveVoice.speak(button.value);
+//     } else {
+//       responsiveVoice.speak(getCard(button));
+//     }
+//   })
+// });
 
 dice.addEventListener("click", function(){
   if (sumAll.checked) {
@@ -60,7 +60,7 @@ function getCardImage(markers) {
         }
     }
   }
-  return cardImages;
+  return cardImages[0];
 }
 
 var container = document.getElementById('imageContainer');

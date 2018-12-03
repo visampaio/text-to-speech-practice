@@ -8,24 +8,7 @@ var brightness = document.getElementById("brightness");
 var highContrast = document.getElementById("highContrast");
 var sharpness = document.getElementById("sharpness");
 var canvasDigital, contextDigital, imgDigital, digitalData, digitalData2;
-var image = document.getElementById("imagenzinha");
-// var img;
-// var file;
-// var input = document.getElementById('imgfile');
-// var fr = new FileReader();
-// var img = document.getElementById("testcard");
-var canvasDigital = document.getElementById("canvasDigital");
-var contextDigital = canvasDigital.getContext("2d");
-canvasDigital.width = image.width;
-canvasDigital.height = image.height;
 
-var canvasDigital2 = document.getElementById("canvasDigital2");
-var contextDigital2 = canvasDigital.getContext("2d");
-canvasDigital2.width = image.width;
-canvasDigital2.height = image.height;
-
-digitalData2 = contextDigital2.getImageData(0, 0, canvasDigital2.width, canvasDigital2.height);
-digitalDataOriginal = digitalData2;
 
 // var aconteceu;
 //
@@ -132,7 +115,7 @@ digitalDataOriginal = digitalData2;
 
         var markers = detector.detect(imageData);
         drawCorners(markers);
-        // drawId(markers);
+
         for (i = 0; i !== markers.length; ++ i) {
           itemList.push(markers[i].id);
         }
@@ -223,7 +206,23 @@ digitalDataOriginal = digitalData2;
       /// ?
 
       if (markers.length > 0) {
-        // context2.clearRect(0, 0, canvasQuadrado.width, canvasQuadrado.height);
+        var image = document.getElementById("imagenzinha");
+        image.src = getCardImage(itemList);
+
+        canvasDigital = document.getElementById("canvasDigital");
+        contextDigital = canvasDigital.getContext("2d");
+        canvasDigital.width = image.width;
+        canvasDigital.height = image.height;
+
+        canvasDigital2 = document.getElementById("canvasDigital2");
+        contextDigital2 = canvasDigital.getContext("2d");
+        canvasDigital2.width = image.width;
+        canvasDigital2.height = image.height;
+
+        digitalData2 = contextDigital2.getImageData(0, 0, image.width, image.height);
+        digitalDataOriginal = digitalData2;
+
+
         contextDigital.drawImage(image, 0, 0);
         contextDigital2.drawImage(image, 0, 0);
         digitalData = contextDigital.getImageData(0, 0, canvasDigital.width, canvasDigital.height);

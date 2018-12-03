@@ -38,16 +38,16 @@
 
 
   <video id="video" autoplay="true" style="display:none;"></video>
-  <canvas id="canvas" style="width:320px; height:240px; position:relative;"></canvas>
+  <canvas id="canvas" style="width:640px; height:480px; position:relative;"></canvas>
   <video id="video2" autoplay="true" style="display:none;"></video>
-  <canvas id="canvasOutput" style="width:320px; height:240px; position:absolute; left: 0"></canvas>
+  <canvas id="canvasOutput" style="width:640px; height:480px; position:absolute; left: 0"></canvas>
   <!-- <br> Video2, Context3, canvasOutput <br> -->
   <video id="video3" autoplay="true" style="display:none;"></video>
-  <canvas id="canvasQuadrado" style="width:320px; height:240px; position:absolute; left: 0"></canvas>
+  <canvas id="canvasQuadrado" style="width:640px; height:480px; position:absolute; left: 0"></canvas>
   <br>
 
-  <button id="say">Say the cards</button>
-  <button id="show">Show the cards</button>
+  <button id="say">Read the cards</button>
+  <br>
 
   <label for="highContrast"> High Contrast</label>
   <input id="highContrast" type="range" min="-100" max="100" list="contrastMarks">
@@ -56,6 +56,7 @@
     <option value="0">
     <option value="100">
   </datalist>
+  <br>
 
   <label for="brightness"> Brightness</label>
   <input id="brightness" type="range" min="-100" max="100" list="brightnessMarks">
@@ -64,6 +65,7 @@
     <option value="0">
     <option value="100">
   </datalist>
+  <br>
 
   <label for="sharpness"> Sharpness</label>
   <input id="sharpness" type="range" min="0" max="100" list="sharpnessMarks">
@@ -73,7 +75,7 @@
     <option value="100">
   </datalist>
 
-  Red:
+  <!-- Red:
   <input type="radio" id="redRed" name="red" value="red">
   <label for="redRed">Red</label>
   <input type="radio" id="redPurple" name="red" value="purple">
@@ -81,12 +83,62 @@
   <input type="radio" id="redCyan" name="red" value="cyan">
   <label for="redRed">Cyan</label>
   <input type="radio" id="redYellow" name="red" value="yellow">
-  <label for="redRed">Yellow</label>
+  <label for="redRed">Yellow</label> -->
 
   <hr>
 
-  <label for="nameOfPlayer"> Name:</label>
-  <input type=text id="nameOfPlayer">
+  <div id="playerTracker">
+    <p><label for="name1">Name:</label><input type=text class="name" id="name1">
+    <label for="secret1">Secret Info</label><input type=password id="secret1">
+    <input type=text class="role" id="role1">
+    <button id="readRole1">Read Role</button>
+    Score: <button id="minus1">-</button> <span id="score1">0</span>
+    <button id="add1">+</button><button id="readScore1">Read Score</button></p>
+
+    <p><label for="name2">Name:</label><input type=text class="name" id="name2">
+    <label for="secret2">Secret Info</label><input type=password id="secret2">
+    <input type=text class="role" id="role2">
+    <button id="readRole2">Read Role</button>
+    Score: <button id="minus2">-</button> <span id="score2">0</span>
+    <button id="add2">+</button><button id="readScore2">Read Score</button></p>
+
+    <p><label for="name3">Name:</label><input type=text class="name" id="name3">
+    <label for="secret3">Secret Info</label><input type=password id="secret3">
+    <input type=text class="role" id="role3">
+    <button id="readRole3">Read Role</button>
+    Score: <button id="minus3">-</button> <span id="score3">0</span>
+    <button id="add3">+</button><button id="readScore3">Read Score</button></p>
+
+    <p><label for="name4">Name:</label><input type=text class="name" id="name4">
+    <label for="secret4">Secret Info</label><input type=password id="secret4">
+    <input type=text class="role" id="role4">
+    <button id="readRole4">Read Role</button>
+    Score: <button id="minus4">-</button> <span id="score4">0</span>
+    <button id="add4">+</button><button id="readScore4">Read Score</button></p>
+
+    <p><label for="name5">Name:</label><input type=text class="name" id="name5">
+    <label for="secret5">Secret Info</label><input type=password id="secret5">
+    <input type=text class="role" id="role5">
+    <button id="readRole5">Read Role</button>
+    Score: <button id="minus5">-</button> <span id="score5">0</span>
+    <button id="add5">+</button><button id="readScore5">Read Score</button></p>
+  </div>
+
+  <button id="readSec">Read Secret</button>
+  <br>
+  <label for="villager">Number of villagers:</label>
+  <select id="villager">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  <label for="wolf">Number of wolfs:</label>
+  <select id="wolf">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  <button id="sortRole">Sort Roles</button>
 
 
   <div>
@@ -102,6 +154,7 @@
 
     <script type="text/javascript" src="cv.js"></script>
     <script type="text/javascript" src="aruco.js"></script>
+    <script src='boardgame-function.js'></script>
     <script src='function.js'></script>
     <script type="text/javascript" src="getusermedia.js"></script>
 </body>

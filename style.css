@@ -20,7 +20,6 @@
 }
 
 
-/* #imageContainer img {
-  width: 50%;
-
-} */
+.role {
+  display: none;
+}
