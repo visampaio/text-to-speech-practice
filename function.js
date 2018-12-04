@@ -6,7 +6,8 @@ const repeat = document.getElementById("repeat");
 const say = document.getElementById("say");
 const show = document.getElementById("show");
 let nDice = document.getElementById("numberofDices");
-let nSide = document.getElementById("numberofSides")
+let nSide = document.getElementById("numberofSides");
+let changeGreen = document.getElementById("changeGreen");
 let diceArray = [];
 let lastSaid;
 let card;
@@ -154,11 +155,13 @@ function changeColor(imgData) {
     let r = frame.data[i * 4 + 0];
     let g = frame.data[i * 4 + 1];
     let b = frame.data[i * 4 + 2];
-    var tempg = g;
-    if (g > 0 && g < 200)
-      frame.data[i * 4 + 1] -= 100;
-      // frame.data[i * 4 + 0] = tempg;
-  }
+    if (changeGreen.checked) {
+      var tempg = g;
+      if (g > 0 && g < 200)
+        frame.data[i * 4 + 1] -= 100;
+        // frame.data[i * 4 + 0] = tempg;
+      }
+    }
   return frame;
 
 }

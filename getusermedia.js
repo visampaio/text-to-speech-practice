@@ -151,7 +151,7 @@ var canvasDigital, contextDigital, imgDigital, digitalData, digitalData2;
         context3.putImageData(contrastImage(imageData3, highContrast.valueAsNumber), 0, 0);
         context3.putImageData(changeBrightness(imageData3, brightness.valueAsNumber), 0, 0);
         context3.putImageData(sharpen(context3, canvas.width, canvas.height, sharpness.valueAsNumber), 0, 0);
-        // context3.putImageData(changeColor(imageData3), 0, 0);
+        context3.putImageData(changeColor(imageData3), 0, 0);
 
         // if (aconteceu) {
         //   contextDigital.drawImage(img, 0, 0, 230, 324);
@@ -175,8 +175,8 @@ var canvasDigital, contextDigital, imgDigital, digitalData, digitalData2;
                 let cosHor = - a/distHor;
                 let senHor = - b/distHor;
 
-                newCorner[1].x = corners[0].x + (distHor*2.5)*cosHor;
-                newCorner[1].y = corners[0].y + (distHor*2.5)*senHor;
+                newCorner[1].x = corners[0].x + (distHor*3)*cosHor;
+                newCorner[1].y = corners[0].y + (distHor*3)*senHor;
 
                 context2.lineTo(newCorner[1].x, newCorner[1].y)
 
@@ -190,14 +190,14 @@ var canvasDigital, contextDigital, imgDigital, digitalData, digitalData2;
                 let cosVer = - a/distVer;
                 let senVer = - b/distVer;
 
-                newCorner[3].x = corners[0].x + (distVer*2.3)*cosVer;
-                newCorner[3].y = corners[0].y + (distVer*3.3)*senVer;
+                newCorner[3].x = corners[0].x + (distVer*3.3)*cosVer;
+                newCorner[3].y = corners[0].y + (distVer*4.3)*senVer;
 
                 context2.lineTo(newCorner[3].x, newCorner[3].y)
 
         // 3 > 2
-                newCorner[2].x = newCorner[3].x + (distHor*2.5)*cosHor;
-                newCorner[2].y = newCorner[3].y + (distHor*2.5)*senHor;
+                newCorner[2].x = newCorner[3].x + (distHor*3)*cosHor;
+                newCorner[2].y = newCorner[3].y + (distHor*3)*senHor;
 
                 context2.lineTo(newCorner[2].x, newCorner[2].y)
 
@@ -230,7 +230,7 @@ var canvasDigital, contextDigital, imgDigital, digitalData, digitalData2;
         contextDigital2.putImageData(contrastImage(digitalData2, highContrast.valueAsNumber), 0, 0);
         contextDigital2.putImageData(changeBrightness(digitalData2, brightness.valueAsNumber), 0, 0);
         contextDigital2.putImageData(sharpen(contextDigital2, canvasDigital2.width, canvasDigital2.height, sharpness.valueAsNumber), 0, 0);
-        // contextDigital2.putImageData(changeColor(digitalData2), 0, 0);
+        contextDigital2.putImageData(changeColor(digitalData2), 0, 0);
 
         context2.fillStyle = "rgb(0,255,0)";
         context2.fill();
